@@ -7,7 +7,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <form className="logincontainer">
+      <form className="login-container">
         <div className="login-title">
             <h2>{currState}</h2>
         </div>
