@@ -1,0 +1,126 @@
+.expenditure {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    gap: 1rem;
+}
+
+.expenditure-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.636);
+}
+
+.expenditure-info select {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(187, 185, 185, 0.733);
+    cursor: pointer;
+    font-size: 1rem;
+    color: rgb(100, 98, 98);
+}
+
+.expenditure-desc {
+    color: rgba(0, 0, 0, 0.46);
+    font-size: 0.9rem;
+}
+
+.expenditure hr {
+    border: 1px solid rgba(187, 185, 185, 0.7);
+    height: 1px;
+}
+
+.money-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    gap: 1.5rem;
+}
+
+.money-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: red;
+    gap: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.money-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+.expenditure .income {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.388);
+}
+
+.income .income-icon {
+    background-color: rgba(0, 128, 0, 0.459);
+}
+
+.expenditure .expense {
+    color: rgba(255, 0, 0, 0.61);
+    background-color: rgba(255, 0, 0, 0.388);
+}
+
+.expense .expense-icon {
+    background-color: rgba(255, 0, 0, 0.268);
+}
+
+.expenditure .balance {
+    color: rgba(0, 0, 255, 0.822);
+    background-color: rgba(0, 0, 255, 0.218);
+}
+
+.balance .balance-icon {
+    background-color: rgba(0, 0, 255, 0.301);
+}
+
+/* ================= DARK THEME ================= */
+
+.expenditure.dark {
+    background-color: rgb(41, 39, 39);
+}
+
+.expenditure.dark h2 {
+    color: #e5e7eb;
+}
+
+.expenditure.dark .expenditure-desc {
+    color: #9ca3af;
+}
+
+.expenditure.dark select {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border: 1px solid #374151;
+}
+
+.expenditure.dark hr {
+    border-color: #374151;
+}
+
+.expenditure.dark .money-data p,
+.expenditure.dark .money-data div {
+    color: #e5e7eb;
+}
+
+@media screen and (max-width:500px) {
+    .expenditure select {
+        font-size: 0.75rem;
+    }
+}
