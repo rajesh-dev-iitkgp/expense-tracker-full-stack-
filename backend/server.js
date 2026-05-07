@@ -13,7 +13,7 @@ app.use(cors())
 
 connectDB()
 
-//
+// API routes
 
 app.get("/",(req,res)=>{
     res.end("API is working")
