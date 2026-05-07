@@ -33,6 +33,7 @@ const Login = () => {
             if(response.data.success){
                 localStorage.setItem("token",response.data.token);
                 navigate("/",{replace:true})
+                setData((prev)=>({...prev,password:""}));
             }
 
         } catch (error) {
