@@ -1,6 +1,7 @@
 import "./Login.css"
 import { useState } from "react"
 import { useNavigate, Navigate } from "react-router-dom"
+import axios from "axios"
 
 
 const Login = () => {
@@ -14,10 +15,6 @@ const Login = () => {
         password:""
     });
 
-    if (localStorage.getItem("isLoggedIn")) {
-        return <Navigate to="/" />
-    }
-
     const onChangeHandler = (e)=>{
         const name=e.target.name;
         const value=e.target.value;
@@ -27,10 +24,21 @@ const Login = () => {
         }));
     }
 
-    const onSubmitHandler = (e)=>{
+    const onSubmitHandler = async (e)=>{
         e.preventDefault();
-        localStorage.setItem("isLoggedIn",true);
-        navigate("/",{replace:true});
+
+        try {
+            const url = currState==="Login" ? "http://localhost:4000/api/user/login" : "http://localhost:4000/api/user/register";
+            const response = await axios.post(url,data)
+            if(response.data.success){
+                localStorage.setItem("token",response.data.token);
+                navigate("/",{replace:true})
+            }
+
+        } catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
         
     }
 

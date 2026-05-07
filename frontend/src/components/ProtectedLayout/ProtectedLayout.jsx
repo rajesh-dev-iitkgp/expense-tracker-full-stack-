@@ -3,9 +3,9 @@ import Sidebar from "../Sidebar/Sidebar";
 
 const ProtectedLayout = () => {
 
-    const isLoggedIn= localStorage.getItem("isLoggedIn");
+    const token = localStorage.getItem("token");
 
-    if(!isLoggedIn) {
+    if(!token) {
         return <Navigate to="/login" />
     }
 
