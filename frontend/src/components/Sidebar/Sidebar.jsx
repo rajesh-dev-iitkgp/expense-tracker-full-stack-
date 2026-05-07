@@ -6,11 +6,17 @@ import DarkMode from "../../assets/dark_mode.svg?react"
 import lightMode from "../../assets/light_mode.png"
 import { useContext } from "react"
 import { ThemeContext } from "../../context/ThemeContext"
-import {  NavLink } from "react-router-dom"
+import {  NavLink, useNavigate } from "react-router-dom"
 
 const Sidebar = () => {
 
   const {theme,ToggleTheme} = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  const logoutHandler = ()=>{
+    localStorage.removeItem("token");
+    navigate("/login",{replace:true})
+  }
 
   return (
     <div className={theme==="dark" ? "sidebar dark" : "sidebar"}>
@@ -34,8 +40,11 @@ const Sidebar = () => {
         </NavLink>
       </div>
       <div className="sidebar-bottom">
-        <p className = {theme==="dark" ? "sidebar-theme-light" : "sidebar-theme-dark"}>Change theme</p>
-        {theme==="dark" ? <img src={lightMode} alt="" onClick={ToggleTheme}/> : <DarkMode className="sidebar-icon " onClick={ToggleTheme}/>}
+        <div className="sidebar-bottom-theme">
+          <p className = {theme==="dark" ? "sidebar-theme-light" : "sidebar-theme-dark"}>Change theme</p>
+          {theme==="dark" ? <img src={lightMode} alt="" onClick={ToggleTheme}/> : <DarkMode className="sidebar-icon " onClick={ToggleTheme}/>}
+        </div>
+        <button onClick={logoutHandler}>Logout</button>
       </div>
     </div>
   )
