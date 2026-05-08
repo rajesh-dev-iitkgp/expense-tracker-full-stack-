@@ -1,12 +1,15 @@
 import "./Login.css"
-import { useState } from "react"
+import { useState,useContext} from "react"
 import { useNavigate, Navigate } from "react-router-dom"
 import axios from "axios"
+import { TransactionsContext } from "../../context/TransactionsContext"
 
 
 const Login = () => {
 
     const navigate=useNavigate();
+
+    const {fetchTransactions} = useContext(TransactionsContext);
 
     const [currState,setCurrState]=useState("Login");
     const [data,setData]=useState({
@@ -32,6 +35,7 @@ const Login = () => {
             const response = await axios.post(url,data)
             if(response.data.success){
                 localStorage.setItem("token",response.data.token);
+                await fetchTransactions();
                 navigate("/",{replace:true})
                 setData((prev)=>({...prev,password:""}));
             }
