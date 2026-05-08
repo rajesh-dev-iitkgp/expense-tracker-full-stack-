@@ -1,4 +1,4 @@
-const AddTransaction = async (req, res) => {
+const addTransaction = async (req, res) => {
 
 }
 
@@ -14,4 +14,4 @@ const getTransactions = async (req, res) => {
 
 }
 
-module.exports = { AddTransaction, editTransaction, deleteTransaction, getTransactions }
+module.exports = { addTransaction, editTransaction, deleteTransaction, getTransactions }
