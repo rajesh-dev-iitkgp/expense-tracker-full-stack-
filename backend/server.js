@@ -3,6 +3,7 @@ import connectDB from "./config/connectDB.js"
 import cors from "cors"
 import dotenv from "dotenv"
 import userRouter from "./routes/userRoute.js"
+import transactionRouter from "./routes/transactionRoute.js"
 
 dotenv.config()
 
@@ -18,6 +19,7 @@ connectDB()
 // API routes
 
 app.use("/api/user",userRouter)
+app.use("/api/transaction",transactionRouter)
 
 app.get("/",(req,res)=>{
     res.end("API is working")
