@@ -11,7 +11,7 @@ const RecentTransactions = () => {
   const {transactions} = useContext(TransactionsContext);
 
   const sortedTransactions = [...transactions].sort(
-   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+   (a, b) => new Date(b.date) - new Date(a.date)
   );
 
   const latestTransactions = sortedTransactions.slice(0,3);
@@ -24,7 +24,7 @@ const RecentTransactions = () => {
           const Icon = categoryIcons[txn.category];
           return (
                 <>
-                <div className="recent-transactions-data-item" key={txn.id}>
+                <div className="recent-transactions-data-item" key={txn._id}>
                   <div>
                     <Icon className={`${txn.category}-icon`}/>
                     <p>{txn.description}</p>
