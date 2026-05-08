@@ -7,6 +7,7 @@ import { ThemeContext } from "../../context/ThemeContext"
 import { TransactionsContext } from "../../context/TransactionsContext"
 import { categoryIcons } from "../../constants/categoryIcons"
 import {useNavigate} from "react-router-dom"
+import React from "react"
 
 const History = () => {
 
@@ -85,8 +86,8 @@ const History = () => {
           const Icon = categoryIcons[transaction.category]
 
           return (
-              <>
-              <div className="history-data-item" key={transaction.id}>
+              <React.Fragment key={transaction._id}>
+              <div className="history-data-item">
                 <div className="history-data-item-desc">
                   {Icon && <Icon className={`${transaction.category}-icon`}/>}
                   <div className="history-data-item-details">
@@ -102,12 +103,12 @@ const History = () => {
                   </div>
                   <div className="history-buttons">
                     <button className="edit-button" onClick={()=>navigate("/addTransaction",{state:{transaction}})}> <Edit className="edit-icon"/> Edit</button>
-                    <button className="delete-button" onClick={()=>handleDelete(transaction.id)}> <Delete className="delete-icon" /> Delete</button>
+                    <button className="delete-button" onClick={()=>handleDelete(transaction._id)}> <Delete className="delete-icon" /> Delete</button>
                   </div>
                 </div>
               </div>
               <hr /> 
-              </> 
+              </React.Fragment> 
           )
         })}
       </div>

@@ -39,7 +39,7 @@ const AddTransaction = () => {
 
     if(isEditMode){
       editTransaction({
-        id: editingTransaction.id,
+        _id: editingTransaction._id,
         amount: Number(amount),
         type: type,
         category: category,
@@ -51,12 +51,10 @@ const AddTransaction = () => {
 
     else {
       addTransaction({
-      id: crypto.randomUUID(),
       amount: Number(amount),
       type: type,
       category: category,
       date: date,
-      createdAt : Date.now(),
       description : description
     }) 
     

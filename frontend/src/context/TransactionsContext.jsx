@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/set-state-in-effect */
+//* eslint-disable react-hooks/exhaustive-deps */
+//* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable react-refresh/only-export-components */
 import { useState,useEffect,createContext } from "react";
 import axios from "axios";
@@ -16,7 +16,6 @@ const TransactionsProvider = ({ children }) => {
                 const response = await axios.get("http://localhost:4000/api/transaction", {headers:{token}});
                 if(response.data.success){
                     setTransactions(response.data.transactions);
-                    console.log(response.data.transactions)
                 }     
             }
              catch (error) {
